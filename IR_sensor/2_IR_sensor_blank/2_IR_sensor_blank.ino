@@ -34,8 +34,7 @@ void loop() {
   Serial.print("-");
   Serial.println(IR_R_data);
   
-  // [실습] 빈칸 채우기
-  // 아래 라인 트레이서 코드가 있어요. (0이 흰색, 1이 검은색)
+
   // 자동차가 가야할 방향을 "  " 안에 적어주세요 (직진/정지/좌회전/우회전)
   // 예)  Serial.println("직진");
   if (IR_L_data == 0 and IR_M_data == 1 and IR_R_data == 0) {
