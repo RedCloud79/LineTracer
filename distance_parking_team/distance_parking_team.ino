@@ -35,7 +35,7 @@ void loop() {
   IR_M_data = digitalRead(IR_M);
   IR_R_data = digitalRead(IR_R);
 
-  if (Timer_move + 10000 > millis()){
+  if (Timer_move + 6000 > millis()){
     if (IR_L_data == 0 and IR_M_data == 1 and IR_R_data == 0) {
     forward();
     }
@@ -48,9 +48,9 @@ void loop() {
     else if (IR_L_data == 1 and IR_M_data == 1  and IR_R_data == 1) {
       stop();
     }
-  }else if(Timer_move + 10000 < millis()){
+  }else if(Timer_move + 6000 < millis()){
     stop();
-    delay(10);
+    delay(50);
     // delay(50000);
     // backward();
     // delay(500);
@@ -65,55 +65,56 @@ void loop() {
     distance = (duration*.0343)/2;
      delay(500);
 
-    if (distance > 60 && distance <= 70) {
+    if (distance > 10 && distance <= 70) {
     backward();
-    delay(15);
-    tone(buzzer, 523, 1000/8);
-    delay(1000 / 2*1.30);
+    delay(50);
+    tone(buzzer, 740, 1000/8);
+    delay(1000 / 8*1.30);
     noTone(buzzer);
     }
-    else if (distance > 50 && distance <= 60) {
-      backward();
-      // backward_60();
-      delay(15);
-      tone(buzzer, 740, 1000/8);
-      delay(1000 / 4*1.30);
-      noTone(buzzer);
+    // else if (distance > 50 && distance <= 60) {
+    //   backward();
+    //   // backward_60();
+    //   delay(100);
+    //   tone(buzzer, 740, 1000/8);
+    //   delay(1000 / 4*1.30);
+    //   noTone(buzzer);
     
-    }
-    else if (distance > 40 && distance <= 50) {
-      // backward();
-      backward_50();
-      delay(15);
-      tone(buzzer, 880, 1000 / 8);
-      delay(1000 / 8*1.30);
-      noTone(buzzer);
-    }
-    else if (distance > 30 && distance <= 40) {
-      // backward();
-      backward_40();
-      delay(15);
-      tone(buzzer, 1109, 1000 / 8);
-      delay(1000 / 16*1.30);
-      noTone(buzzer);
-    }
-    else if (distance > 20 && distance <= 30) {
-      // backward();
-      backward_30();
-      delay(15);
-      tone(buzzer, 1568, 1000/8);
-      delay(1000 / 32*1.30);
-      noTone(buzzer);
-    }
-    else if (distance > 10 && distance <= 20) {
-      // backward();
-      backward_20();
-      delay(15);
-      tone(buzzer, 1760, 1000 / 8);
-      delay(1000 / 64 * 1.30);
-      noTone(buzzer);
-    }
+    // }
+    // else if (distance > 40 && distance <= 50) {
+    //   backward();
+    //   // backward_50();
+    //   delay(100);
+    //   tone(buzzer, 880, 1000 / 8);
+    //   delay(1000 / 8*1.30);
+    //   noTone(buzzer);
+    // }
+    // else if (distance > 30 && distance <= 40) {
+    //   backward();
+    //   // backward_40();
+    //   delay(100);
+    //   tone(buzzer, 1109, 1000 / 8);
+    //   delay(1000 / 16*1.30);
+    //   noTone(buzzer);
+    // }
+    // else if (distance > 20 && distance <= 30) {
+    //   backward();
+    //   // backward_30();
+    //   delay(100);
+    //   tone(buzzer, 1568, 1000/8);
+    //   delay(1000 / 32*1.30);
+    //   noTone(buzzer);
+    // }
+    // else if (distance > 10 && distance <= 20) {
+    //   backward();
+    //   // backward_20();
+    //   delay(100);
+    //   tone(buzzer, 1760, 1000 / 8);
+    //   delay(1000 / 64 * 1.30);
+    //   noTone(buzzer);
+    // }
     else if (distance <= 10) {
+      tone(buzzer, 1760, 1000/ 8);
       stop();
     }
     Timer_move = 0;
