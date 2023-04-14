@@ -20,8 +20,8 @@ const int IR_L = A5;
 int IR_L_data;
 int IR_M_data;
 int IR_R_data;
-// 초음파 센서 거리
 
+// 초음파 센서 거리
 float duration, distance;
 
 
