@@ -120,22 +120,29 @@ void loop() {
   else if (distance > 40 && distance <= 50) {
     backward_50();
     delay(15);
-    tone(buzzer, 1109, 1000 / 8);
+    tone(buzzer, 880, 1000 / 8);
     delay(1000 / 8*1.30);
     noTone(buzzer);
   }
-  else if (distance > 20 && distance <= 30) {
+  else if (distance > 30 && distance <= 40) {
     backward_40();
     delay(15);
     tone(buzzer, 1109, 1000 / 8);
-    delay(1000 / 8*1.30);
+    delay(1000 / 16*1.30);
+    noTone(buzzer);
+  }
+  else if (distance > 20 && distance <= 30) {
+    backward_30();
+    delay(15);
+    tone(buzzer, 1568, 1000/8);
+    delay(1000 / 32*1.30);
     noTone(buzzer);
   }
   else if (distance > 10 && distance <= 20) {
     backward_20();
     delay(15);
-    tone(buzzer, 1568, 1000/8);
-    delay(1000 / 16*1.30);
+    tone(buzzer, 1760, 1000 / 8);
+    delay(1000 / 64 * 1.30);
     noTone(buzzer);
   }
   else if (distance <= 10) {
