@@ -94,7 +94,7 @@ void loop() {
 
     duration = pulseIn(echoPin, HIGH);
     distance = (duration*.0343)/2;
-     delay(50);
+    delay(50);
 
     // 거리별 부저 및 후진
     if (distance > 70 && distance <= 150) {
@@ -152,7 +152,7 @@ void loop() {
       tone(buzzer, 1760, 1000/ 8);
       stop();
     }
-    
+
     Timer_move = 0;
   }
 
